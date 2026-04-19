@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class habitmanager : MonoBehaviour
 {
+    //Manages all habits and handles saving/loading
     public List<Habit> habits = new List<Habit>();
     // Start is called before the first frame update
     void Start()

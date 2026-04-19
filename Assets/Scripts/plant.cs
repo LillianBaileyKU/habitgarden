@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class plant : MonoBehaviour
 {
+    //Controls visual growth of the plants
     public habitmanager manager;
     public int habitIndex = 0;
     public List<UnityEngine.UI.Image> leaves = new List<UnityEngine.UI.Image>();

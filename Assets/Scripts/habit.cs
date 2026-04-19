@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class Habit
 {
+    //Represents a single habit and progress
     public string name;
     public int progress;
     public bool isEmpty = false;

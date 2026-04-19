@@ -5,6 +5,7 @@ using TMPro;
 
 public class addhabituicontroller : MonoBehaviour
 {
+    //Handles UI for adding habits and showing first time tutorial
     public habitmanager manager;
     public GameObject addhabitpanel;
     public TMP_InputField inputfield;
@@ -12,19 +13,23 @@ public class addhabituicontroller : MonoBehaviour
     private string currentinput;
     public GameObject tutorialimage;
     private bool firstopen = true;
+    public AudioSource audiosource;
+    public AudioClip tutorialsound;
 
 
     public void Start()
     {
+        //Check if user has opened the app before, otherwise play tutorial
         LoadFirst();
         if (firstopen == true)
         {
             tutorialimage.SetActive(true);
-            firstopen = false;
+            audiosource.PlayOneShot(tutorialsound, 0.8f);
             SaveFirst();
         }
     }
     public void OpenAddHabit(int slotindex)
+    //Opens add habit panel
     {
         currentslotindex = slotindex;
         addhabitpanel.SetActive(true);
@@ -34,6 +39,7 @@ public class addhabituicontroller : MonoBehaviour
 
     public void SubmitHabit()
     {
+        //Submits new habit to plant
         currentinput = inputfield.text;
         if (string.IsNullOrWhiteSpace(currentinput))
         {
@@ -57,7 +63,7 @@ public class addhabituicontroller : MonoBehaviour
             addhabitpanel.SetActive(false);
         }
     }
-
+    //Close tutorial, load first run data, save first run data
     public void CloseTutorial()
     {
         tutorialimage.SetActive(false);
@@ -70,6 +76,7 @@ public class addhabituicontroller : MonoBehaviour
 
     void SaveFirst()
     {
+        Debug.Log("Saving first run = 1");
         PlayerPrefs.SetInt("first_run", 1);
         PlayerPrefs.Save();
     }

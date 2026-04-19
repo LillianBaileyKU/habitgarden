@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 public class buttonscontroller : MonoBehaviour
 {
+    //Controls UI buttons for plant/habit slots
     public habitmanager manager;
     public Button AddButton;
     public Button SubtractButton;
@@ -27,6 +28,7 @@ public class buttonscontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Show or hide buttons based on plant vacancy
         if (manager.habits[habitindex].isEmpty == true)
         {
             AddButton.gameObject.SetActive(false);

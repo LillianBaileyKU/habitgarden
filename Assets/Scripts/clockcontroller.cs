@@ -6,6 +6,7 @@ using TMPro;
 
 public class clockcontroller : MonoBehaviour
 {
+    //Controls date/time text
     public TextMeshProUGUI clocktext;
     public TextMeshProUGUI datetext;
 
